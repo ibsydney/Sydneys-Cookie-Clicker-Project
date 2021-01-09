@@ -1,0 +1,12 @@
+#cookiebutton {
+    width: 500px;
+    height: 500px;
+}
+
+p {
+    display: inline-block;
+}
+
+input {
+    outline-style: none;
+}
