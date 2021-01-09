@@ -7,6 +7,60 @@ p {
     display: inline-block;
 }
 
+h1 {
+  font-size: 50px;
+  text-align: center;
+  color: rgb(13, 124, 197);
+}
+
 input {
     outline-style: none;
+    padding: 5px;
+}
+
+body {
+    background-color: rgb(131, 205, 255);
+}
+
+button {
+    size: 50px;
+}
+
+.row {
+    display: flex;
+}
+  
+.column {
+    padding: 10px;
+}
+
+.left {
+    width: 75%;
+    text-align: center;
+}
+  
+.right {
+    width: 25%;
+    background-color: lightgray;
+    border: 2px solid  rgb(21, 162, 255);
+    border-radius: 5px;
+}
+
+#cursorimg {
+    width: 50px;
+    vertical-align: middle;
+    padding-left: 10px;
+}
+
+.upgrades {
+    border: 2px solid rgb(21, 162, 255);
+    border-radius: 5px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.upgrades:enabled {
+    cursor:pointer;
 }

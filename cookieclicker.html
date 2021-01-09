@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <link rel="stylesheet" href="cookieclicker.css"></link>
 
-    </head>
+<head>
+    <link rel="stylesheet" href="cookieclicker.css">
+    </link>
 
-    <body id="body1">
+</head>
 
-        <h1 id="header">Cookie Clicker!</h1>
+<body id="body1">
 
-        <div>
-            <p id="amount">Total Cookies:</p>
-            <p id="total">0</p>
+    <div class="row">
+        <div class="column left">
+            <h1 id="header">COOKIE CLICKER!</h1>
 
+            <div class="subheader">
+                <p>Total Cookies:</p>
+                <p id="total">0</p>
+                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Cookies Per Second:</p>
+                <p id="cps">0</p>
+
+            </div>
+
+            <input id="cookiebutton" onclick="addcookie(1)" type="image"
+                src="https://assets.stickpng.com/images/580b57fbd9996e24bc43c0fc.png" />
         </div>
 
-        <input id="cookiebutton" onclick="addcookie(1)" type="image" src="https://assets.stickpng.com/images/580b57fbd9996e24bc43c0fc.png">
-        </input>
+        <div class="column right">
+            <h1 id="header">UPGRADES</h1>
 
-        <button id="cursorupgrade" onclick="addcursor()">ADD CURSOR
-        </button>
+            <button id="cursorupgrade" class="upgrades" onclick="addUpgrade('cursor')">
+                <p>Cursor Upgrade</p>
+                <p id="cost">Cost: 15 cookies</p>
+            </button>
 
-    </body>
+            <br />
 
-    <script src="cookieclicker.js"></script>
+            <button id="grandmaupgrade" class="upgrades" onclick="addUpgrade('grandma')">
+                <p>Grandma Upgrade</p>
+                <p id="cost">Cost: 30 cookies</p>
+            </button>
+
+            <br />
+
+            <button id="farmupgrade" class="upgrades" onclick="addUpgrade('farm')">
+                <p>Farm Upgrade</p>
+                <p id="cost">Cost: 40 cookies</p>
+            </button>
+
+            <script src="cookieclicker.js"></script>
+        </div>
+    </div>
+
+</body>
 
 </html>
