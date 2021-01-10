@@ -13,45 +13,59 @@
 <body id="body1">
 
     <div class="row">
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Options</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="#about">Log In</a>
+            </div>
+        </div>
+
         <div class="column left">
-            <h1 id="header">COOKIE CLICKER!</h1>
 
-            <div class="subheader">
-                <p>Total Cookies:</p>
-                <p id="total">0</p>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Cookies Per Second:</p>
-                <p id="cps">0</p>
-
+            <div class="header">
+                <h1 id="header">COOKIE CLICKER!</h1>
             </div>
 
-            <input id="cookiebutton" onclick="addcookie(1); shakeCookie()" type="image"
+            <div class="subheader">
+                <p>Total &#127850:</p>
+                <p id="total">0</p>
+            </div>
+
+            <!-- <audio id="clickSound" src="click.mp3" type="audio/mp3" preload="auto"></audio> -->
+
+            <input class="rotate" id="cookiebutton"
+                onclick="addcookie(1); shakeCookie(); document.getElementById('clickSound').play()" type="image"
                 src="https://assets.stickpng.com/images/580b57fbd9996e24bc43c0fc.png" />
         </div>
 
         <div class="column right">
-            <h1 id="header">UPGRADES</h1>
+            <h1 id="header">SHOP</h1>
 
-            <button id="cursorupgrade" class="upgrades" disabled="true"
-                onclick="addUpgrade('cursor'); shakeUpgrade('cursor')">
+            <button id="cursorupgrade" class="upgrades" disabled="true" onclick="addUpgrade('cursor')">
                 <p>Cursor Upgrade</p>
-                <p id="cursorcost">Cost: 15 cookies</p>
+                <p id="cursorcost">Cost: 15 &#127850</p>
             </button>
 
             <br />
 
-            <button id="grandmaupgrade" class="upgrades" disabled="true"
-                onclick="addUpgrade('grandma'); shakeUpgrade('grandma')">
+            <button id="grandmaupgrade" class="upgrades" disabled="true" onclick="addUpgrade('grandma')">
                 <p>Grandma Upgrade</p>
-                <p id="grandmacost">Cost: 30 cookies</p>
+                <p id="grandmacost">Cost: 75 &#127850</p>
             </button>
 
             <br />
 
-            <button id="farmupgrade" class="upgrades" disabled="true"
-                onclick="addUpgrade('farm'); shakeUpgrade('farm')">
+            <button id="farmupgrade" class="upgrades" disabled="true" onclick="addUpgrade('farm')">
                 <p>Farm Upgrade</p>
-                <p id="farmcost">Cost: 40 cookies</p>
+                <p id="farmcost">Cost: 100 &#127850</p>
             </button>
+
+            <div class="shopBottom">
+                <p>&#127850 Per Second:</p>
+                <p id="cps">0</p>
+            </div>
+
+
         </div>
     </div>
 

@@ -3,8 +3,30 @@
     height: 500px;
 }
 
+@keyframes rotation {
+    100% {transform: rotate(360deg)}
+  }
+
+.rotate {
+    animation: rotation 90s infinite;
+}
+
 p {
     display: inline-block;
+}
+
+.header {
+    padding: 10px;
+    text-align: center;
+    background-color: lightgray;
+    border: 2px solid  rgb(21, 162, 255);
+    border-radius: 5px;
+    color: white;
+    font-size: 30px;
+  }
+
+.subheader {
+    font-size: 30px;
 }
 
 h1 {
@@ -50,6 +72,10 @@ button {
     border-radius: 5px;
 }
 
+.shopBottom {
+    text-align: end;
+}
+
 #cursorimg {
     width: 50px;
     vertical-align: middle;
@@ -59,14 +85,29 @@ button {
 .upgrades {
     border: 2px solid rgb(21, 162, 255);
     border-radius: 5px;
-    text-align: left;
     display: flex;
     justify-content: space-between;
     width: 100%;
+    align-items: center;
+    position: relative;
+    text-align: left;
 }
 
 .upgrades:enabled {
     cursor:pointer;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+.upgrades:enabled:hover,
+.upgrades:enabled:focus,
+.upgrades:enabled:active {
+    transform: scale(1.025);
 }
 
 @keyframes shake {
@@ -87,3 +128,56 @@ button {
     animation: shake 0.4s;
     animation-iteration-count: infinite;
 }
+
+.dropbtn {
+    background-color: rgb(21, 162, 255);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+.dropbtn:hover, .dropbtn:focus {
+    background-color: rgb(12, 114, 182);
+}
+  
+#myInput {
+    box-sizing: border-box;
+    background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+  
+#myInput:focus {outline: 3px solid #ddd;}
+  
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown a:hover {background-color: #ddd;}
+  
+.show {display: block;}
+

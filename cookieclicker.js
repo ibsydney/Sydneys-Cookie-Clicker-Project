@@ -4,12 +4,9 @@ let grandmas = 0;
 let farms = 0;
 let upgrade = {
     cursor: { duration: 5, cost: 15, cookies: 1, amount: 0, func: () => upgradeCookies("cursor"), button: "cursorupgrade", costid: "cursorcost" },
-    grandma: { duration: 1, cost: 30, cookies: 1, amount: 0, func: () => upgradeCookies("grandma"), button: "grandmaupgrade", costid: "grandmacost" },
-    farm: { duration: 1, cost: 40, cookies: 8, amount: 0, func: () => upgradeCookies("farm"), button: "farmupgrade", costid: "farmcost" }
+    grandma: { duration: 1, cost: 75, cookies: 1, amount: 0, func: () => upgradeCookies("grandma"), button: "grandmaupgrade", costid: "grandmacost" },
+    farm: { duration: 1, cost: 100, cookies: 8, amount: 0, func: () => upgradeCookies("farm"), button: "farmupgrade", costid: "farmcost" }
 }
-let cduration = 5;
-let gduration = 1;
-let fduration = 1;
 
 for (field in upgrade) {
     setInterval(upgrade[field].func, upgrade[field].duration * 1000);
@@ -31,8 +28,8 @@ function addUpgrade(upgradeType) {
     upgrade[upgradeType].amount++;
     addcookie(-upgrade[upgradeType].cost)
     newcps()
-    upgrade[upgradeType].cost = Math.round(upgrade[upgradeType].cost * 1.5);
-    document.getElementById(upgrade[upgradeType].costid).innerHTML = "Cost: " + upgrade[upgradeType].cost + " cookies";
+    upgrade[upgradeType].cost = Math.round(upgrade[upgradeType].cost * 1.1);
+    document.getElementById(upgrade[upgradeType].costid).innerHTML = "Cost: " + upgrade[upgradeType].cost + " &#127850";
 }
 
 function disableUpgrade(upgradeType) {
@@ -60,11 +57,6 @@ function shakeCookie() {
     setTimeout(removeShakeCookie, 200);
 }
 
-function removeShakeUpgrade(upgradeType) {
-    document.getElementById(upgrade[upgradeType].button).classList.remove("shaking");
-}
-
-function shakeUpgrade(upgradeType) {
-    document.getElementById(upgrade[upgradeType].button).classList.add("shaking");
-    setTimeout(() => removeShakeUpgrade(upgradeType), 200);
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
 }
