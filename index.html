@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="cookieclicker.css">
     </link>
 
+    <script src="cookieclicker.js"></script>
+
 </head>
 
 <body id="body1">
@@ -29,26 +31,27 @@
         <div class="column right">
             <h1 id="header">UPGRADES</h1>
 
-            <button id="cursorupgrade" class="upgrades" onclick="addUpgrade('cursor'); shakeUpgrade('cursor')">
+            <button id="cursorupgrade" class="upgrades" disabled="true"
+                onclick="addUpgrade('cursor'); shakeUpgrade('cursor')">
                 <p>Cursor Upgrade</p>
                 <p id="cursorcost">Cost: 15 cookies</p>
             </button>
 
             <br />
 
-            <button id="grandmaupgrade" class="upgrades" onclick="addUpgrade('grandma'); shakeUpgrade('grandma')">
+            <button id="grandmaupgrade" class="upgrades" disabled="true"
+                onclick="addUpgrade('grandma'); shakeUpgrade('grandma')">
                 <p>Grandma Upgrade</p>
                 <p id="grandmacost">Cost: 30 cookies</p>
             </button>
 
             <br />
 
-            <button id="farmupgrade" class="upgrades" onclick="addUpgrade('farm'); shakeUpgrade('farm')">
+            <button id="farmupgrade" class="upgrades" disabled="true"
+                onclick="addUpgrade('farm'); shakeUpgrade('farm')">
                 <p>Farm Upgrade</p>
                 <p id="farmcost">Cost: 40 cookies</p>
             </button>
-
-            <script src="cookieclicker.js"></script>
         </div>
     </div>
 

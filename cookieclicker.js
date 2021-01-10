@@ -11,10 +11,6 @@ let cduration = 5;
 let gduration = 1;
 let fduration = 1;
 
-document.getElementById("cursorupgrade").disabled = true;
-document.getElementById("grandmaupgrade").disabled = true;
-document.getElementById("farmupgrade").disabled = true;
-
 for (field in upgrade) {
     setInterval(upgrade[field].func, upgrade[field].duration * 1000);
 }
