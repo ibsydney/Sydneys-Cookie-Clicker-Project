@@ -22,30 +22,30 @@
 
             </div>
 
-            <input id="cookiebutton" onclick="addcookie(1); shake()" type="image"
+            <input id="cookiebutton" onclick="addcookie(1); shakeCookie()" type="image"
                 src="https://assets.stickpng.com/images/580b57fbd9996e24bc43c0fc.png" />
         </div>
 
         <div class="column right">
             <h1 id="header">UPGRADES</h1>
 
-            <button id="cursorupgrade" class="upgrades" onclick="addUpgrade('cursor')">
+            <button id="cursorupgrade" class="upgrades" onclick="addUpgrade('cursor'); shakeUpgrade('cursor')">
                 <p>Cursor Upgrade</p>
-                <p id="cost">Cost: 15 cookies</p>
+                <p id="cursorcost">Cost: 15 cookies</p>
             </button>
 
             <br />
 
-            <button id="grandmaupgrade" class="upgrades" onclick="addUpgrade('grandma')">
+            <button id="grandmaupgrade" class="upgrades" onclick="addUpgrade('grandma'); shakeUpgrade('grandma')">
                 <p>Grandma Upgrade</p>
-                <p id="cost">Cost: 30 cookies</p>
+                <p id="grandmacost">Cost: 30 cookies</p>
             </button>
 
             <br />
 
-            <button id="farmupgrade" class="upgrades" onclick="addUpgrade('farm')">
+            <button id="farmupgrade" class="upgrades" onclick="addUpgrade('farm'); shakeUpgrade('farm')">
                 <p>Farm Upgrade</p>
-                <p id="cost">Cost: 40 cookies</p>
+                <p id="farmcost">Cost: 40 cookies</p>
             </button>
 
             <script src="cookieclicker.js"></script>

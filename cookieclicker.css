@@ -22,6 +22,10 @@ body {
     background-color: rgb(131, 205, 255);
 }
 
+button:focus {
+    outline: rgb(21, 162, 255);
+}
+
 button {
     size: 50px;
 }
@@ -35,12 +39,12 @@ button {
 }
 
 .left {
-    width: 75%;
+    width: 70%;
     text-align: center;
 }
   
 .right {
-    width: 25%;
+    width: 30%;
     background-color: lightgray;
     border: 2px solid  rgb(21, 162, 255);
     border-radius: 5px;

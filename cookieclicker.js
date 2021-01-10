@@ -3,9 +3,9 @@ let cursors = 0;
 let grandmas = 0;
 let farms = 0;
 let upgrade = {
-    cursor: { duration: 5, cost: 15, cookies: 1, amount: 0, func: () => upgradeCookies("cursor") },
-    grandma: { duration: 1, cost: 30, cookies: 1, amount: 0, func: () => upgradeCookies("grandma") },
-    farm: { duration: 1, cost: 40, cookies: 8, amount: 0, func: () => upgradeCookies("farm") }
+    cursor: { duration: 5, cost: 15, cookies: 1, amount: 0, func: () => upgradeCookies("cursor"), button: "cursorupgrade", costid: "cursorcost" },
+    grandma: { duration: 1, cost: 30, cookies: 1, amount: 0, func: () => upgradeCookies("grandma"), button: "grandmaupgrade", costid: "grandmacost" },
+    farm: { duration: 1, cost: 40, cookies: 8, amount: 0, func: () => upgradeCookies("farm"), button: "farmupgrade", costid: "farmcost" }
 }
 let cduration = 5;
 let gduration = 1;
@@ -14,8 +14,6 @@ let fduration = 1;
 document.getElementById("cursorupgrade").disabled = true;
 document.getElementById("grandmaupgrade").disabled = true;
 document.getElementById("farmupgrade").disabled = true;
-
-let upgradeFields = Object.keys(upgrade);
 
 for (field in upgrade) {
     setInterval(upgrade[field].func, upgrade[field].duration * 1000);
@@ -34,9 +32,11 @@ function upgradeCookies(upgradeType) {
 }
 
 function addUpgrade(upgradeType) {
-    upgrade[upgradeType].amount = upgrade[upgradeType].amount + 1;
+    upgrade[upgradeType].amount++;
     addcookie(-upgrade[upgradeType].cost)
     newcps()
+    upgrade[upgradeType].cost = Math.round(upgrade[upgradeType].cost * 1.5);
+    document.getElementById(upgrade[upgradeType].costid).innerHTML = "Cost: " + upgrade[upgradeType].cost + " cookies";
 }
 
 function disableUpgrade(upgradeType) {
@@ -48,14 +48,27 @@ function newtotal() {
 }
 
 function newcps() {
-    document.getElementById("cps").innerHTML = ((upgrade["cursor"].amount / cduration) + (upgrade["grandma"].amount / gduration) + (upgrade["farm"].amount * 8 / fduration)).toFixed(2);
+    let sum = 0;
+    for (field in upgrade) {
+        sum += upgrade[field].cookies * upgrade[field].amount / upgrade[field].duration;
+    }
+    document.getElementById("cps").innerHTML = sum.toFixed(2);
 }
 
-function removeShake() {
+function removeShakeCookie() {
     document.getElementById("cookiebutton").classList.remove("shaking");
 }
 
-function shake() {
+function shakeCookie() {
     document.getElementById("cookiebutton").classList.add("shaking");
-    setTimeout(removeShake, 200);
+    setTimeout(removeShakeCookie, 200);
+}
+
+function removeShakeUpgrade(upgradeType) {
+    document.getElementById(upgrade[upgradeType].button).classList.remove("shaking");
+}
+
+function shakeUpgrade(upgradeType) {
+    document.getElementById(upgrade[upgradeType].button).classList.add("shaking");
+    setTimeout(() => removeShakeUpgrade(upgradeType), 200);
 }
