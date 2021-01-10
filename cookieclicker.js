@@ -51,11 +51,11 @@ function newcps() {
     document.getElementById("cps").innerHTML = ((upgrade["cursor"].amount / cduration) + (upgrade["grandma"].amount / gduration) + (upgrade["farm"].amount * 8 / fduration)).toFixed(2);
 }
 
+function removeShake() {
+    document.getElementById("cookiebutton").classList.remove("shaking");
+}
+
 function shake() {
     document.getElementById("cookiebutton").classList.add("shaking");
     setTimeout(removeShake, 200);
-}
-
-function removeShake() {
-    document.getElementById("cookiebutton").classList.remove("shaking");
 }
