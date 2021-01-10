@@ -3,9 +3,9 @@ let cursors = 0;
 let grandmas = 0;
 let farms = 0;
 let upgrade = {
-    cursor: { duration: 5, cost: 15, cookies: 1, amount: 0 },
-    grandma: { duration: 1, cost: 30, cookies: 1, amount: 0 },
-    farm: { duration: 1, cost: 40, cookies: 8, amount: 0 }
+    cursor: { duration: 5, cost: 15, cookies: 1, amount: 0, func: () => upgradeCookies("cursor") },
+    grandma: { duration: 1, cost: 30, cookies: 1, amount: 0, func: () => upgradeCookies("grandma") },
+    farm: { duration: 1, cost: 40, cookies: 8, amount: 0, func: () => upgradeCookies("farm") }
 }
 let cduration = 5;
 let gduration = 1;
@@ -18,7 +18,7 @@ document.getElementById("farmupgrade").disabled = true;
 let upgradeFields = Object.keys(upgrade);
 
 for (field in upgrade) {
-    setInterval(() => upgradeCookies(field), upgrade[field].duration * 1000);
+    setInterval(upgrade[field].func, upgrade[field].duration * 1000);
 }
 
 function addcookie(number) {
@@ -30,21 +30,17 @@ function addcookie(number) {
 }
 
 function upgradeCookies(upgradeType) {
-    addcookie(upgrade[upgradeType].amount)
+    addcookie(upgrade[upgradeType].cookies * upgrade[upgradeType].amount)
 }
 
 function addUpgrade(upgradeType) {
-    upgrade[upgradeType].amount++
+    upgrade[upgradeType].amount = upgrade[upgradeType].amount + 1;
     addcookie(-upgrade[upgradeType].cost)
     newcps()
 }
 
 function disableUpgrade(upgradeType) {
-    if (total <= upgrade[upgradeType].cost - 1) {
-        return true;
-    } else {
-        return false;
-    }
+    return (total < upgrade[upgradeType].cost ? true : false);
 }
 
 function newtotal() {
